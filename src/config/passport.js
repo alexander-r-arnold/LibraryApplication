@@ -1,5 +1,7 @@
+// require packages
 var passport = require('passport');
 
+// uses passport for user and session management
 module.exports = function(app) {
 	app.use(passport.initialize());
 	app.use(passport.session());

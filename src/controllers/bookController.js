@@ -1,3 +1,4 @@
+// require packages
 var mongodb = require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectID;
 
@@ -10,6 +11,7 @@ var bookController = function(bookService, nav) {
 		next();
 	};
 
+	// gets the home page of books by retrieving all books
 	var getIndex = function(req, res) {
 			var url = 'mongodb://localhost:27017/libraryApp';
 			mongodb.connect(url, function(err, db) {
@@ -26,6 +28,7 @@ var bookController = function(bookService, nav) {
 			});
 		};
 
+	// gets the information of a books by calling the goodreadsService by <id>
 	var getById = function(req, res) {
 			var id = new objectId(req.params.id);
 			var url = 'mongodb://localhost:27017/libraryApp';
@@ -58,11 +61,6 @@ var bookController = function(bookService, nav) {
 					});
 				});
 	};
-
-
-
-
-
 
 	return {
 		middleware: middleware,

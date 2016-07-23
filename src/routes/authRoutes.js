@@ -1,8 +1,11 @@
+// require packages
 var express = require('express');
 var authRouter = express.Router();
 var mongodb = require('mongodb').MongoClient;
 var passport = require('passport');
 
+// handles user authentication which is currently not required but uses express-sessions to manage
+// handles /signin and /signup and /profile
 var router = function(){
 
 	authRouter.route('/signUp')

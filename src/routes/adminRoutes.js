@@ -1,7 +1,9 @@
+// require packages
 var express = require('express');
 var adminRouter = express.Router();
 var mongodb = require('mongodb').MongoClient;
 
+// books to import
 var books = [
 	{
 		title: 'Outliers',
@@ -11,38 +13,43 @@ var books = [
 		read: true
 	},
 	{
-		title: 'Charolettes Web',
-		genre: 'Childrens Novel',
+		title: 'Positioning',
+		genre: 'Business & Marketing',
 		author: 'EB Webb i think',
-		bookId: 24178,
+		bookId: 760025,
 		read: true
 	},
 	{
 		title: 'Freakonomics',
 		genre: 'Crazy Economist view on the world',
 		author: 'Steven Levitt',
+		bookId: 1202,
 		read: true
 	},
 	{
-		title: 'The Intelligent Investor',
-		genre: 'Finance',
-		author: 'Bejamin Ghramam',
-		read: false
+		title: 'The Five People You Meet in Heaven',
+		genre: 'Fiction',
+		author: 'Mitch Albom',
+		bookId: 3431,
+		read: true
 	},
 	{
-		title: 'Predictably Irreational',
+		title: 'Predictably Irrational',
 		genre: 'Non-fiction Creative Thinking',
-		author: 'Some guy',
-		read: false
+		author: 'Dan Ariely',
+		bookId: 1713426,
+		read: true
 	},
 	{
 		title: 'Blink',
 		genre: 'Non-fiction',
 		author: 'Malcomb Gladwell',
-		read: false
+		bookId: 40102,
+		read: true
 	}
 ];
 
+// inserts books into collection, use remove and then re add all books to rid duplicates
 var router = function(nav){
 
 	adminRouter.route('/addBooks')

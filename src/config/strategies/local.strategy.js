@@ -1,9 +1,10 @@
+// require packages
 var passport = require('passport'),
 	LocalStrategy = require('passport-local').Strategy,
 	mongodb = require('mongodb').MongoClient;
 
 
-
+// uses passport-local for the strategy of user auth
 module.exports = function() {
 	passport.use(new LocalStrategy({
 		usernameField: 'userName',
