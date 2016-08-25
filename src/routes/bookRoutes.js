@@ -14,7 +14,7 @@ var router = function(nav){
 		.get(bookController.getIndex);
 
 	bookRouter.route('/:id')
-	.get(bookController.getById);
+		.get(bookController.getById);
 
 
 	return bookRouter;

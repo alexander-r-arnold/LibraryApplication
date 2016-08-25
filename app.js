@@ -25,7 +25,7 @@ var adminRouter = require('./src/routes/adminRoutes')(nav);
 var authRouter = require('./src/routes/authRoutes')(nav);
 
 // declare session and json parser for the application
-app.use(express.static('public'));
+app.use(express.static(__dirname + 'public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
@@ -33,7 +33,7 @@ app.use(session({secret: 'library'}));
 require('./src/config/passport')(app);
 
 // set views for the ejs engine
-app.set('views', './src/views');
+app.set('views', __dirname + './src/views');
 app.set('view engine', 'ejs');
 
 // map routers
